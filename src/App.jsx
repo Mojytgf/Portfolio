@@ -1,28 +1,41 @@
 import React, { useEffect, useState } from "react";
 import {
   siApachespark,
+  siAngular,
   siDatabricks,
   siDbt,
+  siDocker,
+  siElasticsearch,
+  siGrafana,
   siGooglecloud,
   siGithub,
+  siInfluxdb,
+  siJsonwebtokens,
+  siK6,
+  siKibana,
   siLinkedin,
+  siMariadb,
+  siMongodb,
   siNumpy,
   siPandas,
   siPython,
   siQlik,
   siScikitlearn,
   siSnowflake,
+  siSwagger,
+  siSymfony,
   siTableau,
   siTalend,
   siTensorflow,
   siPytorch,
+  siRedis,
 } from "simple-icons"; // Note: siMicrosoftazure and siPowerbi are not exported by simple-icons, using fallback logos instead
 
 const profile = {
   name: "Mohammed ELHOUARY",
-  role: "Élève‑ingénieur ISIMA — Data Engineering & BI",
+  role: "Élève‑ingénieur ISIMA — Data Engineering, BI & Dev Web",
   summary:
-    "Spécialisé en Data Engineering & BI — je conçois pipelines cloud et dashboards pour faciliter la prise de décision.",
+    "Spécialisé en Data Engineering, BI et Dev Web — je conçois des pipelines data, des dashboards et des APIs web pour transformer la donnée en valeur.",
   location: "Basé à Clermont‑Ferrand, France",
   availability: "Recherche stage PFE — disponible Avril 2026",
   email: "hoirymohamed7@gmail.com",
@@ -73,7 +86,7 @@ const experiences = [
         emoji: "🔍",
         duration: "2 semaines",
         tasks: [
-          "Audit de l'infrastructure Qlik View existante (20+ dashboards)",
+          "Audit de l'infrastructure Qlik View existante (+10 applications)",
           "Documentation des applications, variables, et connexions de données",
           "Identification des dépendances métier et des performances critiques",
           "Définition de la stratégie de migration pas à pas",
@@ -118,10 +131,32 @@ const experiences = [
       },
     ],
     impact: [
-      { metric: "20+", label: "Dashboards migrés avec succès" },
+      { metric: "+10", label: "Applications migrées avec succès" },
       { metric: "40%", label: "Réduction des temps de chargement" },
       { metric: "100%", label: "Conformité avec les anciens KPIs" },
     ],
+    humanExperience: {
+      title: "Côté humain de l'expérience",
+      description: "Au-delà de la technique, cette expérience a été riche en échanges avec les équipes métier et les utilisateurs finaux. Voici quelques moments clés de ce stage.",
+      photos: [
+        {
+          src: "/stage-1.jpg",
+          caption: "Sessions de travail collaboratives avec l'équipe BI pour définir les besoins métier et valider les dashboards",
+        },
+        {
+          src: "/stage-2.jpg",
+          caption: "Ateliers de formation utilisateurs — transfert de compétences et accompagnement au changement",
+        },
+        {
+          src: "/stage-3.jpg",
+          caption: "Moments d'équipe et ambiance conviviale chez Textilot — cohésion et esprit collaboratif",
+        },
+        {
+          src: "/stage-4.jpg",
+          caption: "Présentation finale des résultats de la migration devant les équipes et la direction",
+        },
+      ],
+    },
   },
 ];
 
@@ -404,21 +439,220 @@ const projects = [
   },
 ];
 
-const certifications = [
+const devWebProjects = [
   {
-    title: "Data Engineering",
-    org: "DataCamp",
-    notes: "ETL/ELT Python, PySpark/Spark, Airflow, Databricks, Snowflake",
+    id: "tp-mongodb",
+    title: "TP MongoDB : CRUD, cache & recherche",
+    subtitle: "MongoDB, Redis, ElasticSearch, k6",
+    period: "2026",
+    category: "Dev Web",
+    objective:
+      "Application dockerisee avec CRUD MongoDB, cache Redis, tests de charge k6 et monitoring InfluxDB/Grafana, plus recherche full-text via ElasticSearch.",
+    stack: [
+      "MongoDB",
+      "Redis",
+      "ElasticSearch",
+      "k6",
+      "InfluxDB",
+      "Grafana",
+      "Docker",
+      "PHP",
+    ],
+    tags: ["MongoDB", "Redis", "ElasticSearch", "k6"],
+    stages: [
+      {
+        stage: 1,
+        title: "CRUD & base MongoDB",
+        emoji: "🧩",
+        description: "Endpoints CRUD et persistance MongoDB",
+        tools: ["mongodb"],
+        output: "API CRUD",
+        details: ["Creation/lecture/mise a jour", "Structure des documents"],
+      },
+      {
+        stage: 2,
+        title: "Cache & performance",
+        emoji: "⚡",
+        description: "Cache Redis et tests de charge",
+        tools: ["redis", "k6", "influxdb", "grafana"],
+        output: "API acceleree",
+        details: ["Cache Redis", "k6 + InfluxDB/Grafana"],
+      },
+      {
+        stage: 3,
+        title: "Recherche full-text",
+        emoji: "🔎",
+        description: "Indexation et recherche ElasticSearch",
+        tools: ["elasticsearch", "kibana"],
+        output: "Recherche",
+        details: ["ElasticSearch", "Kibana/Elasticvue"],
+      },
+    ],
+    metrics: [
+      { value: "CRUD", label: "Fonctionnalites de base" },
+      { value: "k6", label: "Tests de charge" },
+      { value: "Elastic", label: "Recherche" },
+    ],
+    highlights: [
+      "Benchmarks de performance via k6 avec dashboards Grafana",
+      "Acceleration des endpoints avec cache Redis",
+      "Recherche full-text avec Elastic + Kibana",
+    ],
+    repo: "https://gitlab.isima.fr/moelhouary/tp-mongodb",
+    report: "Rapport PDF disponible dans le depot",
   },
   {
-    title: "Intelligence Artificielle",
+    id: "projet-dev-web",
+    title: "Plateforme Web : bibliotheque & notifications",
+    subtitle: "Symfony 8, Angular, MariaDB",
+    period: "2025",
+    category: "Dev Web",
+    objective:
+      "API REST securisee (JWT) et front Angular pour gestion de livres, utilisateurs et notifications, avec documentation Swagger et orchestration Docker.",
+    stack: [
+      "Symfony",
+      "Doctrine",
+      "JWT",
+      "Swagger",
+      "Angular",
+      "MariaDB",
+      "Docker",
+    ],
+    tags: ["Symfony", "Angular", "JWT", "MariaDB"],
+    stages: [
+      {
+        stage: 1,
+        title: "API securisee",
+        emoji: "🛡️",
+        description: "Endpoints REST + JWT",
+        tools: ["symfony", "jwt", "swagger"],
+        output: "API",
+        details: ["Roles USER/ADMIN", "Swagger UI"],
+      },
+      {
+        stage: 2,
+        title: "Frontend Angular",
+        emoji: "🧭",
+        description: "Interface et consommation API",
+        tools: ["angular"],
+        output: "UI",
+        details: ["Routing", "Services"],
+      },
+      {
+        stage: 3,
+        title: "Orchestration Docker",
+        emoji: "🐳",
+        description: "Stack complete Docker Compose",
+        tools: ["docker", "mariadb"],
+        output: "Env local",
+        details: ["DB MariaDB", "Containers"],
+      },
+    ],
+    metrics: [
+      { value: "JWT", label: "Auth" },
+      { value: "Swagger", label: "Doc API" },
+      { value: "Docker", label: "Orchestration" },
+    ],
+    highlights: [
+      "Roles USER/ADMIN et endpoints securises",
+      "Cache par utilisateur pour les notifications",
+      "Recherche + pagination cote API",
+    ],
+    repo: "https://gitlab.isima.fr/moelhouary/projet-dev-web",
+    report: "Rapport PDF disponible dans le depot",
+  },
+  {
+    id: "projet-webservice",
+    title: "Web Services & assistant vocal",
+    subtitle: "Symfony 5.4, Angular, Docker, Ollama",
+    period: "2025",
+    category: "Dev Web",
+    objective:
+      "Deux volets : une API Symfony (easy-api + JWT) et un front Angular pour un assistant vocal, le tout orchestre via Docker Compose.",
+    stack: ["Symfony", "JWT", "Angular", "Docker", "Ollama"],
+    tags: ["Symfony", "Angular", "Docker", "Ollama"],
+    stages: [
+      {
+        stage: 1,
+        title: "API Symfony",
+        emoji: "⚙️",
+        description: "Back-end REST avec JWT",
+        tools: ["symfony", "jwt"],
+        output: "API",
+        details: ["Generation cles JWT", "Tests"],
+      },
+      {
+        stage: 2,
+        title: "Front Angular",
+        emoji: "🎛️",
+        description: "UI pour assistant vocal",
+        tools: ["angular"],
+        output: "UI",
+        details: ["Docker front", "Serve statique"],
+      },
+      {
+        stage: 3,
+        title: "Orchestration",
+        emoji: "🧱",
+        description: "Compose avec services exposes",
+        tools: ["docker"],
+        output: "Stack",
+        details: ["Ports exposes", "Ollama"],
+      },
+    ],
+    metrics: [
+      { value: "API", label: "Web services" },
+      { value: "Angular", label: "Interface" },
+      { value: "Docker", label: "Stack" },
+    ],
+    highlights: [
+      "API simple avec generation de cles JWT",
+      "Front Angular configure via Docker Compose",
+      "Separation claire back / front",
+    ],
+    repo: "https://gitlab.isima.fr/moelhouary/projet-webservice",
+    report: "Rapport PDF disponible dans le depot",
+  },
+];
+
+const allProjects = [...projects, ...devWebProjects];
+
+const certifications = [
+  {
+    title: "Database Design",
+    org: "DataCamp",
+    notes: "Conception de bases de données relationnelles et normalisation",
+    pdf: "/DataBase Design.pdf",
+  },
+  {
+    title: "ETL/ELT in Python",
+    org: "DataCamp",
+    notes: "Construction de pipelines ETL/ELT avec Python, Pandas et APIs",
+    pdf: "/ETL ELT In Python.pdf",
+  },
+  {
+    title: "Introduction to PySpark",
+    org: "DataCamp",
+    notes: "Traitement de données distribuées avec Apache Spark et PySpark",
+    pdf: "/Introduction to Pyspark.pdf",
+  },
+  {
+    title: "Understanding Data Engineering",
+    org: "DataCamp",
+    notes: "Fondamentaux du Data Engineering : pipelines, qualité, architecture",
+    pdf: "/Understanding Data Engineeering.pdf",
+  },
+  {
+    title: "Artificial Intelligence",
     org: "Udemy",
-    notes: "Agentic AI, Gen AI, RL, Deep Learning",
+    notes: "IA générative, Agentic AI, RL, Deep Learning",
+    pdf: "/Udemy Artificial Intelligence.pdf",
   },
   {
     title: "TOEIC 830/990",
     org: "ETS",
     notes: "Anglais professionnel C1",
+    pdf: "/Toeic.pdf",
   },
 ];
 
@@ -461,7 +695,6 @@ const interests = [
 const kpis = [
   { label: "Dashboards livrés", value: "12+" },
   { label: "Pipelines déployés", value: "8+" },
-  { label: "Sources connectées", value: "20+" },
   { label: "Diplôme — Ingénieur ISIMA", value: "2026" },
   { label: "Certifications", value: "6+" },
 ];
@@ -486,6 +719,19 @@ const techLogos = {
   pytorch: { label: "PyTorch", icon: siPytorch },
   googlecloud: { label: "Google Cloud", icon: siGooglecloud },
   microsoftazure: { label: "Microsoft Azure", src: azureLogo },
+  mongodb: { label: "MongoDB", icon: siMongodb },
+  redis: { label: "Redis", icon: siRedis },
+  elasticsearch: { label: "ElasticSearch", icon: siElasticsearch },
+  kibana: { label: "Kibana", icon: siKibana },
+  k6: { label: "k6", icon: siK6 },
+  influxdb: { label: "InfluxDB", icon: siInfluxdb },
+  grafana: { label: "Grafana", icon: siGrafana },
+  docker: { label: "Docker", icon: siDocker },
+  symfony: { label: "Symfony", icon: siSymfony },
+  angular: { label: "Angular", icon: siAngular },
+  mariadb: { label: "MariaDB", icon: siMariadb },
+  jwt: { label: "JWT", icon: siJsonwebtokens },
+  swagger: { label: "Swagger", icon: siSwagger },
 };
 
 const contactLogos = {
@@ -499,6 +745,12 @@ const skillGroups = [
     emoji: "📊",
     description: "Transformer les données en insights visuels et dashboards impactants",
     logos: ["powerbi", "tableau", "qlik"],
+  },
+  {
+    title: "Dev Web & API",
+    emoji: "🧱",
+    description: "Construire des APIs securisees et des frontends modernes",
+    logos: ["symfony", "angular", "docker", "jwt", "swagger", "mariadb"],
   },
   {
     title: "Data Processing",
@@ -607,6 +859,8 @@ const Card = ({ title, period, subtitle, logo, children }) => (
 
 export default function App() {
   const [expandedProjectId, setExpandedProjectId] = useState(null);
+  const [modalExperience, setModalExperience] = useState(null);
+  const [fullscreenImage, setFullscreenImage] = useState(null);
 
   useEffect(() => {
     if (!expandedProjectId) {
@@ -632,7 +886,7 @@ export default function App() {
     setExpandedProjectId(expandedProjectId === projectId ? null : projectId);
   };
 
-  const expandedProject = projects.find((project) => project.id === expandedProjectId);
+  const expandedProject = allProjects.find((project) => project.id === expandedProjectId);
 
   return (
     <div className="app">
@@ -672,6 +926,24 @@ export default function App() {
               <img src={profile.photo} alt="Mohammed Elhouary" />
             </div>
 
+            <div className="cv-mini">
+              <div>   
+                <p className="cv-mini-title">Expérience phare :<br />
+                  <span className="section-tag cv-mini-tag">Stage chez Textilot - Data Analyst</span>
+                  <br />
+                  <span className="cv-mini-desc">Retourez mon Cv en cliquant sur le bouton !</span>
+                </p>
+              </div>
+              <a
+                className="btn primary cv-mini-btn"
+                href="/Cv_Stage_PFE.pdf"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Voir / Télécharger
+              </a>
+            </div>
+
             <div className="hero-card-bottom">
               {kpis.map((kpi) => (
                 <div key={kpi.label} className="kpi-card">
@@ -695,12 +967,6 @@ export default function App() {
       </header>
 
       <main>
-        <div className="scroll-cta-wrap" aria-hidden="false">
-          <a href="#projets" className="scroll-cta" aria-label="Aller aux projets">
-            Explorer mes projets
-            <span aria-hidden="true">↓</span>
-          </a>
-        </div>
         <Section
           id="competences"
           title="Compétences"
@@ -756,7 +1022,7 @@ export default function App() {
           subtitle="Projet de refonte cloud majeur : Migration Qlik View → Qlik Sense Cloud"
         >
           {experiences.map((exp) => (
-            <div key={exp.role} className="experience-detail">
+            <div key={exp.role} className="experience-detail experience-summary">
               <div className="experience-header">
                 <div className="experience-header-left">
                   <img src={exp.logo} alt={exp.company} className="experience-logo" />
@@ -780,10 +1046,70 @@ export default function App() {
                 </div>
               </div>
 
-              <p className="experience-description">{exp.description}</p>
+              <div className="experience-summary-content">
+                <p className="experience-highlight">
+                  <strong>🚀 Mission :</strong> Piloter la migration complète de +10 applications d'une infrastructure Qlik View on-premise vers Qlik Sense Cloud, incluant refonte UX, optimisation des performances et accompagnement utilisateurs.
+                </p>
+                
+                <div className="experience-quick-wins">
+                  <div className="quick-win-badge">
+                    <span className="win-icon">⚡</span>
+                    <div>
+                      <strong>+10 applications</strong>
+                      <p>Applications migrées avec succès</p>
+                    </div>
+                  </div>
+                  <div className="quick-win-badge">
+                    <span className="win-icon">✅</span>
+                    <div>
+                      <strong>100% conformité</strong>
+                      <p>KPIs validés et approuvés</p>
+                    </div>
+                  </div>
+                  <div className="quick-win-badge">
+                    <span className="win-icon">👥</span>
+                    <div>
+                      <strong>Besoins user alignés</strong>
+                      <p>Dashboards co-construits avec les équipes</p>
+                    </div>
+                  </div>
+                </div>
+
+                <p className="experience-teaser">
+                  <strong>📋 Découvrez :</strong> Les 4 phases de la migration • Les outils et méthodes utilisés • Les moments clés de l'expérience humaine avec photos • Les résultats mesurables de ce projet stratégique
+                </p>
+
+                <button
+                  className="btn primary experience-details-btn"
+                  onClick={() => setModalExperience(exp)}
+                >
+                  ✨ Explorer
+                </button>
+              </div>
+            </div>
+          ))}
+        </Section>
+
+        {modalExperience && (
+          <div className="modal-overlay" onClick={() => setModalExperience(null)}>
+            <div className="modal-content modal-experience" onClick={(e) => e.stopPropagation()}>
+              <button className="modal-close" onClick={() => setModalExperience(null)}>
+                ×
+              </button>
+              
+              <div className="modal-experience-header">
+                <img src={modalExperience.logo} alt={modalExperience.company} className="experience-logo" />
+                <div>
+                  <h2>{modalExperience.role}</h2>
+                  <p className="experience-company">{modalExperience.company}</p>
+                  <p className="experience-period">📅 {modalExperience.period}</p>
+                </div>
+              </div>
+
+              <p className="experience-description">{modalExperience.description}</p>
 
               <div className="experience-phases">
-                {exp.phases.map((phase, idx) => (
+                {modalExperience.phases.map((phase, idx) => (
                   <div key={phase.title} className="phase-card">
                     <div className="phase-header">
                       <span className="phase-emoji">{phase.emoji}</span>
@@ -827,7 +1153,7 @@ export default function App() {
               <div className="experience-impact">
                 <h4>Impact & Résultats</h4>
                 <div className="impact-metrics">
-                  {exp.impact.map((item) => (
+                  {modalExperience.impact.map((item) => (
                     <div key={item.label} className="metric-card">
                       <div className="metric-value">{item.metric}</div>
                       <div className="metric-label">{item.label}</div>
@@ -835,9 +1161,38 @@ export default function App() {
                   ))}
                 </div>
               </div>
+
+              {modalExperience.humanExperience && (
+                <div className="experience-human">
+                  <h4>{modalExperience.humanExperience.title}</h4>
+                  <p className="human-desc">{modalExperience.humanExperience.description}</p>
+                  <div className="human-gallery">
+                    {modalExperience.humanExperience.photos.map((photo, idx) => (
+                      <div key={idx} className="human-photo-card">
+                        <img 
+                          src={photo.src} 
+                          alt={photo.caption}
+                          onClick={() => setFullscreenImage(photo.src)}
+                          style={{ cursor: 'pointer' }}
+                        />
+                        <p className="photo-caption">{photo.caption}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
-          ))}
-        </Section>
+          </div>
+        )}
+
+        {fullscreenImage && (
+          <div className="fullscreen-image-overlay" onClick={() => setFullscreenImage(null)}>
+            <button className="modal-close" onClick={() => setFullscreenImage(null)}>
+              ×
+            </button>
+            <img src={fullscreenImage} alt="Fullscreen" />
+          </div>
+        )}
 
         <Section
           id="projets"
@@ -847,7 +1202,7 @@ export default function App() {
         >
           <div className="projects-scroll">
             <div className="projects-scroll-track" role="list">
-              {projects.map((project) => (
+              {allProjects.map((project) => (
                 <article key={project.id} className="project-card" role="listitem">
                   <div className="project-card-top">
                     <div>
@@ -858,7 +1213,7 @@ export default function App() {
                   </div>
                   <p className="project-card-objective">{project.objective}</p>
                   <div className="project-card-tags">
-                    {project.tags.slice(0, 3).map((tag) => (
+                    {(project.tags || []).slice(0, 3).map((tag) => (
                       <span key={tag} className="tag-compact">#{tag}</span>
                     ))}
                   </div>
@@ -884,6 +1239,17 @@ export default function App() {
             {certifications.map((cert) => (
               <Card key={cert.title} title={cert.title} subtitle={cert.org}>
                 <p className="muted">{cert.notes}</p>
+                {cert.pdf && (
+                  <a
+                    href={cert.pdf}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="btn ghost"
+                    style={{ marginTop: '1rem', display: 'inline-block', padding: '0.6rem 1.2rem', fontSize: '0.85rem' }}
+                  >
+                    Voir le certificat
+                  </a>
+                )}
               </Card>
             ))}
           </div>
@@ -1035,6 +1401,21 @@ export default function App() {
                       </div>
                     ))}
                   </div>
+                  {expandedProject.repo ? (
+                    <div className="project-links">
+                      <a
+                        className="project-link"
+                        href={expandedProject.repo}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        Voir le depot GitLab
+                      </a>
+                      {expandedProject.report ? (
+                        <span className="muted">{expandedProject.report}</span>
+                      ) : null}
+                    </div>
+                  ) : null}
                   <div className="project-tags">
                     {expandedProject.tags.map((tag) => (
                       <span key={tag} className="project-tag">#{tag}</span>
