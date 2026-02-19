@@ -137,7 +137,7 @@ const experiences = [
     ],
     humanExperience: {
       title: "Côté humain de l'expérience",
-      description: "Au-delà de la technique, cette expérience a été riche en échanges avec les équipes métier et les utilisateurs finaux. Voici quelques moments clés de ce stage.",
+      description: "Au-delà de la technique, cette expérience a été riche en échanges avec les équipes métier et les utilisateurs finaux. Voici quelques images de la ville de Nevers.",
       photos: [
         {
           src: "/stage-1.jpg",
@@ -1076,7 +1076,7 @@ export default function App() {
                 </div>
 
                 <p className="experience-teaser">
-                  <strong>📋 Découvrez :</strong> Les 4 phases de la migration • Les outils et méthodes utilisés • Les moments clés de l'expérience humaine avec photos • Les résultats mesurables de ce projet stratégique
+                  <strong>📋 Découvrez :</strong> Les 4 phases de la migration • Les outils et méthodes utilisés • Les moments clés de l'expérience humaine avec photos • Les résultats mesurables de ce projet stratégique <span className="teaser-cta">👉 Cliquez sur Explorer</span>
                 </p>
 
                 <button
@@ -1175,7 +1175,6 @@ export default function App() {
                           onClick={() => setFullscreenImage(photo.src)}
                           style={{ cursor: 'pointer' }}
                         />
-                        <p className="photo-caption">{photo.caption}</p>
                       </div>
                     ))}
                   </div>
